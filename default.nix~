@@ -1,0 +1,16 @@
+with import <nixpkgs> {};
+
+stdenv.mkDerivation rec {
+  name = "useHaskellFFIWithCMake-0.0.1";
+  src = ./.  ;
+
+  nativeBuildInputs = [ cmake ];
+  buildInputs = [ message ];
+  
+
+  installPhase = ''
+    mkdir -p $out/bin;
+    cp useMessage $out/bin/;
+    
+  '';
+}
